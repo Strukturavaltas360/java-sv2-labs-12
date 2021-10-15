@@ -8,16 +8,16 @@ a Java osztályokat fogjátok alapszinten megismerni.
 * [x] [Java történeti háttér videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709755-java-torteneti-hatter)
 * [x] [Oracle JDK telepítése videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/17495660-oracle-jdk-telepitese)
 * [x] Oracle JDK telepítése gyakorlati feladat
-* [ ] [Java platform videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709636-java-platform)
-* [ ] Java platform gyakorlati feladat
-* [ ] [Maven videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709790-maven)
-* [ ] Maven gyakorlati feladat
-* [ ] [IDE videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709791-ide)
-* [ ] IDE videó gyakorlati feladat
-* [ ] [Git használata az IDE-ben videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709754-git-hasznalata-az-ide-ben)
-* [ ] Git használata az IDE-ben gyakorlati feladat
-* [ ] [Feltöltés GitHubra](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/17606463-feltoltes-githubra)
-* [ ] Feltöltés GitHubra gyakorlati feladat
+* [x] [Java platform videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709636-java-platform)
+* [x] Java platform gyakorlati feladat
+* [x] [Maven videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709790-maven)
+* [x] Maven gyakorlati feladat
+* [x] [IDE videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709791-ide)
+* [x] IDE videó gyakorlati feladat
+* [x] [Git használata az IDE-ben videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709754-git-hasznalata-az-ide-ben)
+* [x] Git használata az IDE-ben gyakorlati feladat
+* [x] [Feltöltés GitHubra](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/17606463-feltoltes-githubra)
+* [x] Feltöltés GitHubra gyakorlati feladat
 
 ## Bevezetés a Java osztályok használatába
 
