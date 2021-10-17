@@ -1,7 +1,6 @@
 package classstructuremethods;
 
 import javax.naming.Name;
-import javax.xml.namespace.QName;
 
 public class Note {
 
