@@ -16,4 +16,15 @@ public class BankAccount {
 
         //Tóth Kálmán (10073217-12000098-67341590): 103400 Ft
     }
+
+    public void deposit(int amount) {
+        this.balance = this.balance + amount;
+    }
+
+    public void withdraw(int amount) {
+        this.balance = this.balance - amount;
+    }
+
+    //A számlára lehet befizetni (deposit()) és lehet róla pénzt kivenni (withdraw()).
+
 }
