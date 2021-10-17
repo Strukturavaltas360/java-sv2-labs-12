@@ -1,19 +1,20 @@
 package classstructuremethods;
 
+import javax.naming.Name;
 import javax.xml.namespace.QName;
 
 public class Note {
 
-    private String note;
+    private String name;
     private String topic;
     private String text;
 
-    public String getNote() {
-        return note;
+    public String getName() {
+        return name;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTopic() {
@@ -31,4 +32,10 @@ public class Note {
     public void setText(String text) {
         this.text = text;
     }
+
+    public String getNoteText() {
+
+       return name+": ("+topic+") "+text;
+    }
 }
+
