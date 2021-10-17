@@ -21,6 +21,7 @@ public class Music {
         System.out.println("Kedvenc zeneszámod hossza egész percre kerekítve?");
         favSong.length = scanner.nextInt();
 
+        System.out.println();
         System.out.println("A lejátszási lista generálása az alábbi zeneszámból kiindulva történik:");
         System.out.println("Előadó neve: "+favSong.band+"  | Zeneszám címe: "+ favSong.title +"  | Zeneszám hossza: "+favSong.length+" perc.");
     }
