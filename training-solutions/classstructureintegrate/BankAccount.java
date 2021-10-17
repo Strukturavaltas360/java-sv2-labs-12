@@ -11,6 +11,9 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public String getInfo() {
+        return owner+" ("+accountNumber+"): "+balance+" Ft.";
 
-
+        //Tóth Kálmán (10073217-12000098-67341590): 103400 Ft
+    }
 }
