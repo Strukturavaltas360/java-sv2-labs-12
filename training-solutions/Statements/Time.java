@@ -24,8 +24,12 @@ public class Time {
     }
 
     public boolean earlyerThan(Time time) {
-        thia.hours*3600+this.minutes*60+this.seconds < getSeconds();
+        return this.hours*3600+this.minutes*60+this.seconds < getSeconds();
 
+    }
+
+    public String toString() {
+        return hours+":"+minutes+":"+seconds;
     }
 
 }
