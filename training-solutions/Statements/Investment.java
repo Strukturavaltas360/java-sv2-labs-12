@@ -21,19 +21,16 @@ public class Investment {
     public double getYield(int days) {
         double doubleInterestRate;
         doubleInterestRate = interestRate;
-        return getFund() * days * doubleInterestRate/36500;
+        return fund * days * doubleInterestRate/36500;
 
     }
 
     public double close(int days) {
         double returnInvestment;
-        returnInvestment= active == true? (getFund()+getYield(days))*(1-cost/100) : 0;
-
+        returnInvestment= active == true? (fund+getYield(days))*(1-cost/100) : 0;
         active = false;
         return returnInvestment;
-        
+
     }
-
-
 
 }
