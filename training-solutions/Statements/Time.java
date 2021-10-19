@@ -13,18 +13,18 @@ public class Time {
 
     }
 
-    public int getMinutes() {
+    public int getInMinutes() {
         return hours*60+minutes;
 
     }
 
-    public int getSeconds() {
+    public int getInSeconds() {
         return hours*3600+minutes*60+seconds;
 
     }
 
     public boolean earlyerThan(Time time) {
-        return this.hours*3600+this.minutes*60+this.seconds < getSeconds();
+        return this.hours*3600+this.minutes*60+this.seconds < getInSeconds();
 
     }
 

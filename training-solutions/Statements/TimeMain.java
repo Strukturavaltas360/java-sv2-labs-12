@@ -13,7 +13,8 @@ public class TimeMain {
 
         Time nr1 = new Time(hours, minutes, seconds);
 
-        System.out.println(nr1.getMinutes());
+        System.out.println(nr1.getInMinutes());
+        System.out.println(nr1.getInSeconds());
     }
 }
 /*
