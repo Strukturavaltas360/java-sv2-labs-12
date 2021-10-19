@@ -7,24 +7,30 @@ public class TimeMain {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Első időpont:");
+        System.out.println("Óra:");
         int hours = scanner.nextInt();
+        System.out.println("Perc:");
         int minutes = scanner.nextInt();
+        System.out.println("Másodperc:");
         int seconds =  scanner.nextInt();
 
-        Time nr1 = new Time(hours, minutes, seconds);
+        Time time1 = new Time(hours, minutes, seconds);
 
-        System.out.println(nr1.getInMinutes());
-        System.out.println(nr1.getInSeconds());
+        System.out.println("Második időpont:");
+        System.out.println("Óra:");
+        hours = scanner.nextInt();
+        System.out.println("Perc:");
+        minutes = scanner.nextInt();
+        System.out.println("Másodperc:");
+        seconds =  scanner.nextInt();
+
+        Time time2 = new Time(hours, minutes, seconds);
+
+
+        System.out.println("Az első időpont: " + time1.toString() +" = "+time1.getInMinutes() + " perc.");
+        System.out.println("A második időpont: " + time2.toString() +" = "+time2.getInSeconds() + " másodperc.");
+        System.out.println("Az első korábbi, mint a második: " + time1.earlyerThan(time2)+ "  Méghozzá "+ (time2.getInSeconds() - time1.getInSeconds())+" másodperccel.");
+
     }
 }
-/*
-A TimeMain osztály main() metódusában teszteld az osztályt!
-Kérj be a felhasználótól két időpontot, és írd ki az elsőt teljesen majd percekben,
-a másodikat teljesen majd másodpercekben, illetve azt, hogy az első korábbi-e, mint a második!
-
-Egy lehetséges kimenet:
-
-Az első időpont 12:3:43 = 723 perc
-A második időpont 4:21:38 = 15698 másodperc
-Az első korábbi, mint a második: false
- */
