@@ -1,4 +1,4 @@
-package Statements;
+package statements;
 
 public class Investment {
 
