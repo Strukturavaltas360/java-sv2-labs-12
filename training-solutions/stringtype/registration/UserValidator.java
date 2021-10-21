@@ -4,17 +4,17 @@ public class UserValidator {
 
 
     public boolean isValidUserName(String username){
-        return username.length()>0? true : false;
+        return username.length()>0;
     }
 
     public boolean isValidPassword(String password1, String password2){
-        return password1.length()>=8 && password1.equals(password2) ? true : false;
+        return password1.length()>=8 && password1.equals(password2);
     }
 
     public boolean isValidEmail(String email) {
         int atPosition = email.indexOf("@");
         int dotPosition = email.indexOf(".");
-        return atPosition >= 1  && dotPosition > (atPosition+1) && dotPosition <= email.length()-2 ? true : false;
+        return atPosition >= 1  && dotPosition > (atPosition+1) && dotPosition <= email.length()-2;
 
     }
 }
