@@ -15,6 +15,5 @@ public class UserValidator {
         int atPosition = email.indexOf("@");
         int dotPosition = email.indexOf(".");
         return atPosition >= 1  && dotPosition > (atPosition+1) && dotPosition <= email.length()-2;
-
     }
 }
