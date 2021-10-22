@@ -28,7 +28,7 @@ public class ArrayMain {
                 System.out.print(item+" ");
             }
 
-            
+
 
     }
 
