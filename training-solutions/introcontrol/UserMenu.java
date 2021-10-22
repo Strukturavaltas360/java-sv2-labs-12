@@ -22,13 +22,12 @@ public class UserMenu {
 
         if (i == 1) {
             System.out.println("Felhasználók listázása");
-        } else {
-            if (i == 2) {
-                System.out.println("Felhasználó felvétele");
-            } else {
-                System.out.println("");
-            }
         }
+
+        if (i == 2) {
+                System.out.println("Felhasználó felvétele");
+            }
+
     }
 }
 
