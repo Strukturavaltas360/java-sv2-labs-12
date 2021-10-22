@@ -15,7 +15,7 @@ public class Qualifier {
         if (inputNr>100) {
             System.out.println("A(z) "+inputNr+" nagyobb, mint 100");
         } else {
-            System.out.println("A(z) " + inputNr+" kisebb, mint 100");
+            System.out.println("A(z) " + inputNr+" Száz, vagy kisebb, mint 100");
         }
 
     }
