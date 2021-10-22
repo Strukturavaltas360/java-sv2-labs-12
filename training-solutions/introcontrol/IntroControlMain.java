@@ -14,5 +14,8 @@ public class IntroControlMain {
 
         control.printNumbers(9);
         control.printNumbersBetween(3,7);
+        control.printNumbersBetweenAnyDirection(10,20);
+        control.printNumbersBetweenAnyDirection(20,10);
+        control.printOddNumbers(21);
     }
 }

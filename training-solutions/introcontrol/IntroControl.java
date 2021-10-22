@@ -56,5 +56,24 @@ public class IntroControl {
         }
     }
 
+    public void printNumbersBetweenAnyDirection(int a, int b){
+
+        if (a<b) {
+            for (int i= a; i<=b; i++) {
+                System.out.print(i < b ? i + ", " : i + ".\r\n");
+                }
+            } else {
+                for (int i= a; i>=b; i--) {
+                    System.out.print(i > b ? i + ", " : i + ".\r\n");
+                }
+            }
+
+    }
+    public void printOddNumbers(int max) {
+        for (int i = 1; i<=max; i++) {
+            if (!(i % 2 ==0)) System.out.print(i < max ? i + ", " : i + ".\r\n");
+        }
+
+    }
 
 }
