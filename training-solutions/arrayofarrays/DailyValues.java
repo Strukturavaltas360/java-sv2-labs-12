@@ -17,7 +17,7 @@ public class DailyValues {
 
         int[][] arrayToPrint = dailyValues.getValues();
 
-        for (int[] row: arrayToPrint) {
+        for (int row[] : arrayToPrint) {
             for (int col: row) {
                 System.out.print(col+" ");
             }
