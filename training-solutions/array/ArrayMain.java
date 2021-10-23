@@ -28,14 +28,5 @@ public class ArrayMain {
                 System.out.print(item+" ");
             }
 
-
-
     }
-
-
 }
-
-//Definiálj egy hat elemű boolean tömböt, és felváltva írj bele true vagy false értéket,
-//        0. index esetén legyen false! Ciklusban töltsd fel! Az algoritmus az, hogy mindig
-//        az előző elemnek veszed a logikai negáltját. Ciklusban írd ki az elemeit egy sorba,
-//        szóközökkel elválasztva!
