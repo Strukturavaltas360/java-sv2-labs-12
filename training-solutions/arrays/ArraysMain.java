@@ -70,10 +70,6 @@ public class ArraysMain {
 
         System.out.println(Arrays.equals(wNumbers,new int[] {1,2,3,5,4} ));
         System.out.println(Arrays.equals(pNumbers,new int[] {5,4,3,2,11} ));
-
-
+        
     }
-
-
-
 }
