@@ -11,8 +11,7 @@ public class Operation {
         for (String word: args) {
 
             b = false;
-
-            if (word.equals("/list")) {
+            if (word.equals("/list"))  {
                 System.out.println("Listázás");
                 b = true;
             }
