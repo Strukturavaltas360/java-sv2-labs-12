@@ -6,9 +6,8 @@ import java.util.List;
 public class Crossword {
 
     public static void main(String[] args) {
-        String [] words = {"KULCS", "KÁLYHA", "LÓ", "AJTÓ", "CSERESZNYEFA", "TEJ", "FELHŐ", "CIPŐ", "MOSODA", "KÁVÉTEJSZÍN", "CITERA", "BABA"};
 
-        List<String> wordlist = Arrays.asList(words);
+        List<String> wordlist = Arrays.asList("KULCS", "KÁLYHA", "LÓ", "AJTÓ", "CSERESZNYEFA", "TEJ", "FELHŐ", "CIPŐ", "MOSODA", "KÁVÉTEJSZÍN", "CITERA", "BABA");
 
         for (String word: wordlist) {
             if (word.length() == 6) {
