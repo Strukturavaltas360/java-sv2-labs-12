@@ -14,7 +14,6 @@ public class TaxCalculator {
     }
 
     public static void main(String[] args) {
-        TaxCalculator taxCalculator= new TaxCalculator();
         System.out.println(new TaxCalculator().tax(100));
         System.out.println(new TaxCalculator().priceWithTax(100));
     }
