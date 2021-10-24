@@ -1,5 +1,7 @@
 package looptypesmodify;
 
+import java.util.Arrays;
+
 public class EveryThird {
 
     public int[] changeToZero(int[] numbers){
@@ -15,14 +17,9 @@ public class EveryThird {
         EveryThird everyThird = new EveryThird();
         int [] items = new int [] {2, 6, 3, 5, 7, 2, 6, 2, 3, 5, 7, 3, 2, 9};
 
-        for (int i : items) {
-            System.out.print(i+" ");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(items));
         everyThird.changeToZero(items);
 
-        for (int i : items) {
-            System.out.print(i+" ");
-        }
+        System.out.println(Arrays.toString(items));
     }
 }
