@@ -26,6 +26,6 @@ public class RandomDraw {
 
         System.out.println(firstNameIndex+" "+secondNameIndex);
         System.out.println(names.get(firstNameIndex)+ " és "+ names.get(secondNameIndex));
-        
+
     }
 }
