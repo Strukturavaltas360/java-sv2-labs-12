@@ -51,6 +51,6 @@ public class Kennel {
         Dog dog9 = dogs.get(1);
         dog9.setColour("white");
         System.out.println(anotherdogs);
-        
+
     }
 }
