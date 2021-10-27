@@ -18,6 +18,5 @@ public class PersonMain {
         person.address.correctData("Hungary","Budapest","Etele", "1119");
         System.out.println("After correct address data:  | " + person.personToString() +"  | "+ person.getAddress().addressToString());
 
-
     }
 }
