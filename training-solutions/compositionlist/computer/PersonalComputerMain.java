@@ -36,7 +36,6 @@ public static void main(String[] args) {
         pc3.addHardware(monitor1);
         pc3.addSoftware(software2);
         System.out.println(pc3.getSoftwares());
-
+        
     }
-    
 }
