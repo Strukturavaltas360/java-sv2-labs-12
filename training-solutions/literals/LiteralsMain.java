@@ -1,5 +1,7 @@
 package literals;
 
+import java.sql.Array;
+
 public class LiteralsMain {
 
     public static void main(String[] args) {
@@ -24,9 +26,5 @@ public class LiteralsMain {
 
         System.out.println(Integer.toBinaryString(1));
         System.out.println(Integer.toBinaryString(-2));
-
-
-
-
     }
 }
