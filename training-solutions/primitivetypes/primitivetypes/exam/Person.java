@@ -19,12 +19,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", zipCode=" + zipCode +
-                ", averageGrades=" + averageGrades +
-                '}';
+        return ("Név: " + name +"  | Születési dátum: "+ dateOfBirth + "  | Irányítószám: "+ zipCode+ "  | Átlag: "+ averageGrades);
     }
 
     public String getName() {

@@ -11,6 +11,7 @@ public class Exam {
     }
 
     public void addPerson(Person person) {
+        personlist.add(person);
 
     }
 }
