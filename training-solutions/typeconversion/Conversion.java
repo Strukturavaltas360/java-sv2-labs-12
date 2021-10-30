@@ -29,6 +29,12 @@ public class Conversion {
         return (int) (number*10) - (int) number*10;
 
 //      int result = (int) (number*10) - (int) number*10;
+
+//        int intNumber = (int)number;
+//        double difference = number - intNumber;
+//        difference *= 10;
+//        intNumber = (int) difference;
+//        return intNumber;
     }
 
 }
