@@ -25,5 +25,10 @@ public class Conversion {
         }
         return arrayOfBytes;
     }
+    public int getFirstDecimal(double number) {
+        return (int) (number*10) - (int) number*10;
+
+//      int result = (int) (number*10) - (int) number*10;
+    }
 
 }

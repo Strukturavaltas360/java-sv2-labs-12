@@ -10,5 +10,6 @@ public class ConversionMain {
         int [] arrayofInts = {1,2,-3,4,215,-221, 122, 0};
         System.out.println(Arrays.toString(conversion.convertIntArrayToByteArray(arrayofInts)));
 
+        System.out.println(conversion.getFirstDecimal(15.6567));
     }
 }
