@@ -12,7 +12,7 @@ public class Division {
         System.out.println();
     }
 
-    public void getRightNumbers(int[] numbers){  
+    public void getRightNumbers(int[] numbers){
         for (int i =1; i<numbers.length;i++) {
             System.out.print(numbers[i]%i ==0 ? numbers[i]+" | ":"");
 
