@@ -21,10 +21,39 @@ public class Name {
     }
 
     public String concatNameWesternStyle(){
-        return title.title+" "+givenName+" "+middleName+" "+ familyName;
+        String fullname="";
+
+        if (title != null) {
+            fullname = title.getTitle();
+            fullname = fullname.concat(" ");
+        }
+        fullname = fullname.concat(givenName);
+        fullname = fullname.concat(" ");
+        if ((middleName != null) && (!"".equals(middleName))) {
+            fullname = fullname.concat(middleName);
+            fullname = fullname.concat(" ");
+        }
+        fullname = fullname.concat(familyName);
+        return fullname ;
+
     }
+
     public String concatNameHungarianStyle(){
-        return title.title+" "+familyName+" "+middleName+" "+ givenName;
+        String fullname="";
+
+        if (title != null) {
+            fullname = title.getTitle();
+            fullname +=" ";
+        }
+        fullname += familyName;
+        fullname += " ";
+            if ((middleName != null) && (!"".equals(middleName))) {
+                fullname += middleName;
+                fullname += " ";
+            }
+            fullname += givenName;
+        return fullname ;
+
 
     }
 }
