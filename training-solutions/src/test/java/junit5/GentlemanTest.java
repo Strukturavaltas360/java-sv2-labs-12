@@ -24,6 +24,6 @@ public class GentlemanTest {
 
     //then
     assertEquals(text, "Hello Anonimus");
-        
+
     }
 }
