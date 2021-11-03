@@ -16,7 +16,7 @@ public class StringScanner {
 
         System.out.println("Please enter the second sentence, with more taglines!");
         String sentence2 = sc.nextLine();
-        Scanner tagLine = new Scanner(sentence1).useDelimiter(",");
+        Scanner tagLine = new Scanner(sentence2).useDelimiter(",");
         while (tagLine.hasNext()) {
             System.out.println(tagLine.next());
         }
