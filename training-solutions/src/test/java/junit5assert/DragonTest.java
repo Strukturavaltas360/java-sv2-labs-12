@@ -46,6 +46,7 @@ public class DragonTest {
         Dragon susu = new Dragon("Süsü",1,450);
         Dragon smaug = new Dragon("Süsü",1,450);
         assertNotSame(susu,smaug);
+
     }
 
 }
