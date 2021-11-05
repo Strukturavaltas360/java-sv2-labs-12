@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Division {
 
     public void getNumbersWithFor(int number, int divider) {
-        System.out.print("\u001B[30;46;1m With for:\t\t");
+        System.out.print("\u001B[30;44;1m With for:\t\t");
         for (int smallerIntThanNumber = 1; smallerIntThanNumber <number; smallerIntThanNumber++) {
             if (smallerIntThanNumber % divider ==0) {
                 System.out.print(smallerIntThanNumber+" | ");
