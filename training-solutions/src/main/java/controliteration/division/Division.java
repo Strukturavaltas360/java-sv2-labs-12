@@ -1,4 +1,4 @@
-package division;
+package controliteration.division;
 
 import java.util.Scanner;
 
