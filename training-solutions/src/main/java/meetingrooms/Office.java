@@ -2,13 +2,12 @@ package meetingrooms;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Office {
     private List<MeetingRoom> meetingRooms = new ArrayList<>();
     PrintTable printTable = new PrintTable();
-    private final String UNDERLINED_AND_BOLD_COLORSCHEME = "\u001B[4;1m";
-    private final String NOT_UNDERLINED_AND_BOLD_COLORSCHEME = "\u001B[24;22m";
+    private static final String UNDERLINED_AND_BOLD_COLORSCHEME = "\u001B[4;1m";
+    private static final String NOT_UNDERLINED_AND_BOLD_COLORSCHEME = "\u001B[24;22m";
 
 
     public void printNames(){
@@ -76,29 +75,26 @@ public class Office {
                 + NOT_UNDERLINED_AND_BOLD_COLORSCHEME + originalText.substring(endIndex);
     }
 
-    // A metódus a kapott szövegrészletet tartalmazó tárgyalókat betűmérettől függetlenül leválogatja és pozicionáltan beleteszi egy új listába.
-    // Meghívja azt a metódust, amelyik kiemeli a szövegben a szótöredéket.
+    // A metódus a kapott szövegrészletet tartalmazó tárgyalókat betűmérettől függetlenül leválogatja, egy metódushívással kiemeli a szövegben a szótöredéket,
+    // és pozicionáltan beleteszi egy új listába.
     // Meghívja a kiíró metódust.
 
     public void printMeetingRoomContains(String part) {
         List<String> resultList = new ArrayList<>();
 
-
-        for (int i = 0; i<meetingRooms.size() ; i++) {
-            String tempPart = part.toLowerCase();
-            String tempGetName = meetingRooms.get(i).getName().toLowerCase();
-
-            if (tempGetName.contains(tempPart)) {
-                String s = getHighLightedPartinText(meetingRooms.get(i).getName(), tempGetName, tempPart);
-
-                MeetingRoom newMRoom = new MeetingRoom(s, meetingRooms.get(i).getLength(), meetingRooms.get(i).getWidth());
+        String lowerCasedPart = part.toLowerCase();
+        for (MeetingRoom actuelRoom: meetingRooms) {
+            String lowerCasedActualName = actuelRoom.getName().toLowerCase();
+            if (lowerCasedActualName.contains(lowerCasedPart)) {
+                String s = getHighLightedPartinText(actuelRoom.getName(), lowerCasedActualName, lowerCasedPart);
+                MeetingRoom newMRoom = new MeetingRoom(s, actuelRoom.getLength(), actuelRoom.getWidth());
                 resultList.add(addPositionedMeetingRoomLine(newMRoom,50,16,16,16));
             }
         }
         printTable.printRows(getHeaderForLongTable(),"Keresés eredménye az elnevezésükben a(z) '" + part +
                 "' szótöredéket tartalmazó tárgyalókra", resultList, 100);
-
     }
+
     public void printAreasLargerThan(int area){ // A metódus a kapott méretnél nagyobb területű tárgyalókat leválogatja és pozicionálja egy új listába, majd meghívja a kiíró metódust.
         List<String> resultList = new ArrayList<>();
         for (MeetingRoom actual : meetingRooms) {
