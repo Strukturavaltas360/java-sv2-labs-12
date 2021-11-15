@@ -83,6 +83,7 @@ public class Office {
     public void printMeetingRoomContains(String part) {
         List<String> resultList = new ArrayList<>();
 
+
         for (int i = 0; i<meetingRooms.size() ; i++) {
             String tempPart = part.toLowerCase();
             String tempGetName = meetingRooms.get(i).getName().toLowerCase();

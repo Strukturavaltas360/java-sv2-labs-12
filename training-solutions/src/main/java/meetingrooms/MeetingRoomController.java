@@ -6,21 +6,21 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MeetingRoomController {
-    private final List<String>  MENUITEMS = Arrays.asList("[1] Tárgyaló rögzítése","[2] Tárgyalók sorrendben","[3] Tárgyalók visszafele sorrendben","[4] Minden második tárgyaló","[5] Területek",
+    private static final List<String>  MENUITEMS = Arrays.asList("[1] Tárgyaló rögzítése","[2] Tárgyalók sorrendben","[3] Tárgyalók visszafele sorrendben","[4] Minden második tárgyaló","[5] Területek",
             "[6] Keresés pontos név alapján","[7] Keresés névtöredék alapján","[8] Keresés terület alapján","[9] Kilépés");
 
-    private final String FRAME_COLORSCHEME = "\u001B[30;43m";
-    private final String LINEINPUT_COLORSCHEME = "\u001B[33;49m";
+    private static final String  FRAME_COLORSCHEME = "\u001B[30;43m";
+    private static final String LINEINPUT_COLORSCHEME = "\u001B[33;49m";
 
     Office office = new Office();
     PrintTable printTable = new PrintTable();
 
-    // A menü string elemeit feltölti szóközökkel a táblázathoz megfelelő hosszúságra és átadja az új listát a printRows metódusnak kiírásra.
+    // A menü string elemeit feltölti szóközökkel a táblázathoz megfelelő hosszúságra egy új lsitába, és átadja ezt az új listát a printRows metódusnak kiírásra, 2 fejléccel.
     public void printMenu(){
         List<String> printMenuItems = new ArrayList<>();
         System.out.println();
-        for (int i = 0; i < MENUITEMS.size(); i++) {
-            printMenuItems.add(printTable.upToWidth("          " + MENUITEMS.get(i),70));
+        for (String actuel : MENUITEMS) {
+            printMenuItems.add(printTable.upToWidth("          " + actuel,70));
         }
         printTable.printRows("M E N Ü","TÁRGYALÓ NYILVÁNTARTÁS", printMenuItems,70);
     }
@@ -28,7 +28,7 @@ public class MeetingRoomController {
     // A metódus bekéri a paraméterként kapott értéket, ha az int, akkor visszadja, ha nem, újra kéri.
     public int getAnIntFromScanner(Scanner sc, String text) {
         System.out.print(FRAME_COLORSCHEME + " " + LINEINPUT_COLORSCHEME + text);
-        int result = 0;
+        int result;
         for ( ; ; ) {
             if (sc.hasNextInt()) {
                 result = sc.nextInt();
@@ -44,10 +44,10 @@ public class MeetingRoomController {
     // Bekéri a tárgyaló nevét, de ha már létezik, vagy esetleg üres stringet kapott, akkor újra kéri.
     public String getNameFromScanner(Scanner sc, String text) {
         System.out.print(FRAME_COLORSCHEME + " " + LINEINPUT_COLORSCHEME + text);
-        String result = "";
+        String result;
         for ( ; ; ) {
             result = sc.nextLine();
-            if (!office.isExist(result) && result != "") {
+            if (!office.isExist(result) && !result.equals("")) {
                 return result;
             } else {
                 if (result.equals("")){
@@ -76,12 +76,12 @@ public class MeetingRoomController {
     // Ha nem 1-9 közé esik, akkor jelzi, hogy nincs ilyen menüpont, és újra kéri.
     public int getSelectedMenuItem(){
         Scanner scanner = new Scanner(System.in);
-        int selectedMenuItem = 0;
+        int selectedMenuItem;
         for ( ; ; ) {
             System.out.print(FRAME_COLORSCHEME + " " + LINEINPUT_COLORSCHEME + " Válassz a menüből! [1-9]: ");
             String s = scanner.nextLine();
             if ((s.length() == 1) && (s.charAt(0) >= '1') && (s.charAt(0) <='9')) {
-                selectedMenuItem = Integer.valueOf(s);
+                selectedMenuItem = Integer.parseInt(s);
                 break;
             } else {
                 System.out.println(FRAME_COLORSCHEME + " Nincs ilyen menüpont! " + LINEINPUT_COLORSCHEME);
@@ -144,7 +144,7 @@ public class MeetingRoomController {
                 case 9:
                     exit = true;
             }
-        } while (exit == false);
+        } while (!exit);
     }
 
     public static void main(String[] args) {
