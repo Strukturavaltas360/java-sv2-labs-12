@@ -17,9 +17,5 @@ public class FirstLetter {
             System.out.println("Itt egy kivétel: " + npe.getMessage());
             System.out.println(npe.getStackTrace());
         }
-
-
-
-
     }
 }
