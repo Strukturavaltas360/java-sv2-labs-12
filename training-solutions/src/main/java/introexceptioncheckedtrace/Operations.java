@@ -24,17 +24,4 @@ public class Operations {
         }
         return dailySchedule;
     }
-
-    public static void main(String[] args) {
-        List<String> underground = new ArrayList<>();
-        Operations operations = new Operations();
-
-        try {
-            underground = operations.readFile();
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        System.out.println(operations.getDailySchedule(underground));
-    }
 }
