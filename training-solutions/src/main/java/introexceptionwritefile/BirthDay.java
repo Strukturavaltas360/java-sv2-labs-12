@@ -21,7 +21,7 @@ public class BirthDay {
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException("Not a number!", nfe);
         }
-
+        
         for (int i =1; i<=count; i++) {
             System.out.print("Please enter the name of the person: ");
             name = sc.nextLine();
