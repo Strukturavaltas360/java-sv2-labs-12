@@ -1,11 +1,9 @@
-package introexceptionreadfiletestjunit4;
+package introexceptionreadfiletestjunit5;
 
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,7 +26,6 @@ class WordsTest {
     @Test
     void testIfNoSuchFile() {
         Path path = Paths.get("xyz.txt");
-
         IllegalStateException exception = assertThrows(IllegalStateException.class,
                 () -> words.getFirstWordWithA(path));
         assertEquals("Error while reading file", exception.getMessage());

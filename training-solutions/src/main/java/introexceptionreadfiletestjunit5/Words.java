@@ -1,4 +1,4 @@
-package introexceptionreadfiletestjunit4;
+package introexceptionreadfiletestjunit5;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +29,7 @@ public class Words {
 
     public static void main(String[] args) {
         try {
-            System.out.println(new Words().getFirstWordWithA(Paths.get("src/test/Resources/anotherwords.txt")));
+            System.out.println(new Words().getFirstWordWithA(Paths.get("src/test/Resources/words.txt")));
         }
         catch (IllegalStateException ise) {
             System.out.println(ise.getMessage());
