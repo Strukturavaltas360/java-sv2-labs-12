@@ -18,7 +18,7 @@ class ZooTest {
             new Animal("bee",6),
             new Animal("penguin",2),
             new Animal("dolphin",0));
-    
+
     @Test
     void testCreateZoo() {
         Zoo zoo = new Zoo(animals);
