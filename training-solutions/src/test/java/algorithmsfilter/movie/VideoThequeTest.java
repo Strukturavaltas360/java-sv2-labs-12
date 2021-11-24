@@ -31,8 +31,5 @@ class VideoThequeTest {
     void testGetGoodMoviesWithCategoryGiven() {
         List<Movie> selectedMovies = vt.GetGoodMoviesWithCategoryGiven(Category.SCI_FI);
         assertEquals(3, selectedMovies.size());
-
-        Movie halo = new Movie("Halo",Category.SCI_FI,4);
-        assertTrue(selectedMovies.contains(halo));
     }
 }
