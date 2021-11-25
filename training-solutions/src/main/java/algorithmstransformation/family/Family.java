@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Family {
-    List<FamilyMember> familyMemberList = new ArrayList<>();
+    List<FamilyMember> familyMemberList;
 
     public Family(List<FamilyMember> familyMemberList) {
         this.familyMemberList = familyMemberList;
