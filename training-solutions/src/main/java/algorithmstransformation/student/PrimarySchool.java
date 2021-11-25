@@ -19,8 +19,13 @@ public class PrimarySchool {
         personList.add(person);
     }
 
-//    public List<Student> getStudents() {
-//
-//    }
-
+    public List<Student> getStudents() {
+        List<Student> studentList = new ArrayList<>();
+        for (Person actualPerson: personList) {
+            if (actualPerson.getAge() < 14) {
+                studentList.add(new Student(actualPerson.getName(),actualPerson.getAddress()));
+            }
+        }
+        return studentList;
+    }
 }
