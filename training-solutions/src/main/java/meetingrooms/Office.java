@@ -45,7 +45,8 @@ public class Office {
         return (nameToCenter + widthToCenter + lengthToCenter + areaToCenter);
     }
 
-    public String getHeaderForLongTable() { // A metódus fejlécet állít össze a részletes kiírásokhoz
+    // A metódus fejlécet állít össze a részletes kiírásokhoz
+    public String getHeaderForLongTable() {
         return  printTable.centerText("Tárgyaló neve", false, 50) + printTable.centerText("Szélesség", false, 16) +
                 printTable.centerText("Hosszúság", false, 16) + printTable.centerText("Terület", false, 16);
     }
@@ -58,7 +59,8 @@ public class Office {
         printTable.printRows(getHeaderForLongTable(),"A rendszerben lévő tárgyalók részletes adatai", resultList,100);
     }
 
-    public void printMeetingRoomsWithName(String name){ //  A paraméterként kapott nevű tárgyalókat listába rakja és meghívja a kiíró metódust.
+    //  A paraméterként kapott nevű tárgyalókat listába rakja és meghívja a kiíró metódust.
+    public void printMeetingRoomsWithName(String name){
         List<String> resultList = new ArrayList<>();
         for (MeetingRoom actual: meetingRooms) {
             if (actual.getName().equals(name)) {
@@ -68,7 +70,8 @@ public class Office {
         printTable.printRows(getHeaderForLongTable(),"Keresés eredménye a(z) '" + name + "' elnevezésű tárgyalókra", resultList,100);
     }
 
-    public String getHighLightedPartinText(String originalText, String lowerCasedText, String lowerCasedPart) { //A kapott szövegben kiemel egy részletet aláhúzással és vastagítással.
+    //A kapott szövegben kiemel egy részletet aláhúzással és vastagítással.
+    public String getHighLightedPartinText(String originalText, String lowerCasedText, String lowerCasedPart) {
         int startIndex = lowerCasedText.indexOf(lowerCasedPart);
         int endIndex = startIndex + lowerCasedPart.length();
         return originalText.substring(0,startIndex) + UNDERLINED_AND_BOLD_COLORSCHEME + originalText.substring(startIndex,endIndex)
@@ -95,7 +98,8 @@ public class Office {
                 "' szótöredéket tartalmazó tárgyalókra", resultList, 100);
     }
 
-    public void printAreasLargerThan(int area){ // A metódus a kapott méretnél nagyobb területű tárgyalókat leválogatja és pozicionálja egy új listába, majd meghívja a kiíró metódust.
+    // A metódus a kapott méretnél nagyobb területű tárgyalókat leválogatja és pozicionálja egy új listába, majd meghívja a kiíró metódust.
+    public void printAreasLargerThan(int area){
         List<String> resultList = new ArrayList<>();
         for (MeetingRoom actual : meetingRooms) {
             if (actual.getArea()>area){
@@ -109,7 +113,8 @@ public class Office {
         meetingRooms.add(meetingRoom);
     }
 
-    public boolean isExist(String name) { // A metódus lekérdezi, hogy a paraméterként kapott nevű tárgyaló létezik-e már a listában. (új tárgyaló rögzítéséhez info)
+    // A metódus lekérdezi, hogy a paraméterként kapott nevű tárgyaló létezik-e már a listában. (új tárgyaló rögzítéséhez info)
+    public boolean isExist(String name) {
         for (MeetingRoom actual: meetingRooms) {
             if (actual.getName().equals(name)) {
                 return true;
@@ -118,7 +123,8 @@ public class Office {
         return false;
     }
 
-    public String getMinAndMax() { // A metódus visszaadja a legkisebb és legnagyobb alapterületű tárgyalók méretét
+    // A metódus visszaadja a legkisebb és legnagyobb alapterületű tárgyalók méretét
+    public String getMinAndMax() {
         int max= 0;
         int min = meetingRooms.get(0).getArea();
         for (MeetingRoom actuel: meetingRooms) {

@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MeetingRoomController {
-    private static final List<String>  MENUITEMS = Arrays.asList("[1] Tárgyaló rögzítése","[2] Tárgyalók sorrendben","[3] Tárgyalók visszafele sorrendben","[4] Minden második tárgyaló","[5] Területek",
-            "[6] Keresés pontos név alapján","[7] Keresés névtöredék alapján","[8] Keresés terület alapján","[9] Kilépés");
+    private static final List<String>  MENUITEMS = Arrays.asList(
+            "[1] Tárgyaló rögzítése","[2] Tárgyalók sorrendben",
+            "[3] Tárgyalók visszafele sorrendben","[4] Minden második tárgyaló",
+            "[5] Területek","[6] Keresés pontos név alapján","[7] Keresés névtöredék alapján",
+            "[8] Keresés terület alapján","[9] Kilépés");
 
     private static final String  FRAME_COLORSCHEME = "\u001B[30;43m";
     private static final String LINEINPUT_COLORSCHEME = "\u001B[33;49m";
@@ -19,8 +22,8 @@ public class MeetingRoomController {
     public void printMenu(){
         List<String> printMenuItems = new ArrayList<>();
         System.out.println();
-        for (String actuel : MENUITEMS) {
-            printMenuItems.add(printTable.upToWidth("          " + actuel,70));
+        for (String actual : MENUITEMS) {
+            printMenuItems.add(printTable.upToWidth("          " + actual,70));
         }
         printTable.printRows("M E N Ü","TÁRGYALÓ NYILVÁNTARTÁS", printMenuItems,70);
     }
