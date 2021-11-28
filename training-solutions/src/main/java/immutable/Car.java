@@ -10,10 +10,12 @@ public class Car {
 
     public Car(String brand, String type, int year) {
 
-//        if (brand == "null"|| brand == ""|| year > LocalDate.now().getYear()) {
-//            throw IllegalArgumentException
-//            "Brand name cannot be empty!
-//            Year of production cannot be in the future!
+        if (brand == null|| brand.isBlank()) {
+            throw new IllegalArgumentException("Brand name cannot be empty!");
+        }
+        if (year > LocalDate.now().getYear()) {
+            throw new IllegalArgumentException("Year of production cannot be in the future!");
+        }
         this.brand = brand;
         this.type = type;
         this.year = year;
