@@ -4,7 +4,6 @@ public class Dog {
     private String name;
     private int age;
     private boolean pedigree;
-    private doubleweight;
 
     public Dog() {
     }
