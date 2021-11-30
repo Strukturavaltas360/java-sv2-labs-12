@@ -6,5 +6,5 @@ public class ModifiedWord {
         String s = word.substring(2,3);
         return word.toUpperCase().substring(0,1).concat("x").concat((s.toUpperCase()).concat("y"));
     }
-    
+
 }
