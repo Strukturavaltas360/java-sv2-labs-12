@@ -3,13 +3,13 @@ package staticattrmeth;
 public class Dog {
     private String name;
     private int age;
-    private Species specie;
+    private Species species;
     private long code;
 
     public Dog(String name, int age, Species specie) {
         this.name = name;
         this.age = age;
-        this.specie = specie;
+        this.species = specie;
     }
 
     public String getName() {
@@ -20,8 +20,8 @@ public class Dog {
         return age;
     }
 
-    public Species getSpecie() {
-        return specie;
+    public Species getSpecies() {
+        return species;
     }
 
     public long getCode() {

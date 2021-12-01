@@ -7,7 +7,7 @@ public class Vet {
     List<Dog> dogs = new ArrayList<>();
     private static long code = 1;
 
-    private void addDog(Dog dog) {
+    public void addDog(Dog dog) {
         dog.setCode(code);
         code++;
         dogs.add(dog);
