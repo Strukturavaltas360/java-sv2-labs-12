@@ -35,7 +35,6 @@ public class StudentTest {
         Student student = new Student("Kovács");
         //When
         student.grading(new Mark(MarkType.A, MATH, TUTOR));
-
         //Then
         assertEquals("Kovács marks: matematika: excellent(5)", student.toString());
 

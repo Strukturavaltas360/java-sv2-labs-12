@@ -7,7 +7,7 @@ public class Student {
     private String name;
     private List<Mark> marks = new ArrayList<>();
 
-    
+
     public Student(String name) {
         if (name.isEmpty() || name == null) {
             throw new IllegalArgumentException("Student name must not be empty!");
