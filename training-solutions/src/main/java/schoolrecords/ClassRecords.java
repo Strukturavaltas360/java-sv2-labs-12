@@ -27,7 +27,7 @@ public class ClassRecords {
     public boolean removeStudent(Student student) {
         for (Student s : students) {
             if (s.getName().equals(student.getName())) {
-                students.add(student);
+                students.remove(student);
                 return true;
             }
         }
