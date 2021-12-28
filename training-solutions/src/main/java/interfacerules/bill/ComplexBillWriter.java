@@ -10,7 +10,6 @@ public class ComplexBillWriter implements BillWriter{
         for (String s : billItems) {
             sbResult.append(splitToString(s));
         }
-        System.out.println(sbResult.toString());
         return sbResult.toString();
     }
 
