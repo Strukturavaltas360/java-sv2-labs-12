@@ -24,7 +24,7 @@ public class Danube extends River {
 
         System.out.println(river.getLength());
         System.out.println(river.getName());
-        
+
         System.out.println(danube.getLength());
         System.out.println(danube.getName());
         System.out.println(danube.getCapitals());
