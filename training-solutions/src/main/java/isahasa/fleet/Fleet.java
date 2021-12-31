@@ -13,10 +13,10 @@ public class Fleet {
         ships.add(newShip);
     }
 
-    public void loadShip(int passengers, int cargoWeight){
+    public void loadShip(int passengers, int cargoWeight) {
         waitingPeople = passengers;
         waitingCargo = cargoWeight;
-        for (Ship s: ships) {
+        for (Ship s : ships) {
             if (s instanceof CanCarryGoods) {
                 waitingCargo = ((CanCarryGoods) s).loadCargo(waitingCargo);
             }
