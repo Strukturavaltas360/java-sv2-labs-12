@@ -14,7 +14,6 @@ public class MarkTest {
     public static final Subject SUBJECT = new Subject("matematika");
     public static final Tutor TUTOR = new Tutor("Nagy Lilla", Arrays.asList(SUBJECT));
 
-
     @Test
     public void nullParameterShouldThrowException() throws NullPointerException {
         Exception ex = assertThrows(NullPointerException.class, () -> new Mark(MarkType.A, null, TUTOR));
@@ -38,6 +37,4 @@ public class MarkTest {
         assertEquals(TUTOR, mark.getTutor());
         assertEquals("very good(4)", mark.toString());
     }
-
-
 }

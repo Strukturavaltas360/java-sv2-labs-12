@@ -48,6 +48,7 @@ public class StudentTest {
         student.grading(new Mark(MarkType.A, MATH, TUTOR));
         student.grading(new Mark(MarkType.C, MATH, TUTOR));
         student.grading(new Mark(MarkType.D, MATH, TUTOR));
+
         //Then
         assertEquals(3.33, student.calculateAverage());
     }
