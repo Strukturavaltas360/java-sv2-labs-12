@@ -175,7 +175,7 @@ public class SchoolRecordsController {
             studentForRepetition.grading(new Mark(MarkType.valueOf(mark), subject, tutor));
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Rögzítés SIKERES!");
         } else {
-            System.out.println(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + tutor.getName() + " nem tanítja a(z) " + subject.getSubjectName() + " tárgyat! - Rögzítés SIKERTELEN!");
+            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + tutor.getName() + " nem tanítja a(z) " + subject.getSubjectName() + " tárgyat! - Rögzítés SIKERTELEN!");
         }
     }
 
