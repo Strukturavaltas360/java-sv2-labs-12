@@ -166,13 +166,12 @@ public class SchoolRecordsController {
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Tantárgy megnevezése: ");
         String subjectText = scanner.nextLine().trim();
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Az oktató megnevezése: ");
-        String tutorText = scanner.nextLine().trim();
-
+        String tutorText = scanner.nextLine().trim()
+                ;
         Tutor tutor = getTutor(tutorText);
         Subject subject = getSubject(subjectText);
         if (tutor.tutorTeachingSubject(subject)) {
-            Mark markToRepetition = new Mark(MarkType.valueOf(mark), subject, tutor);
-            studentForRepetition.grading(markToRepetition);
+            studentForRepetition.grading(new Mark(MarkType.valueOf(mark), subject, tutor));
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Rögzítés SIKERES!");
         } else {
             System.out.println(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + tutor.getName() + " nem tanítja a(z) " + subject.getSubjectName() + " tárgyat! - Rögzítés SIKERTELEN!");
@@ -192,7 +191,6 @@ public class SchoolRecordsController {
         } catch (IllegalStateException ise) {
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! " + findName + " nevű diákot nem tudtuk törölni a naplóból!");
         }
-
     }
 
     public void findStudent() {
