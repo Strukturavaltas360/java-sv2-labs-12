@@ -34,7 +34,7 @@ public class Student {
         double sum = 0;
         int counter = 0;
         for (Mark m : marks) {
-            if (m.getSubject().equals(subject)) {
+            if (m.getSubject().getSubjectName().equals(subject.getSubjectName())) {
                 sum += m.getMarkType().getMark();
                 counter++;
             }

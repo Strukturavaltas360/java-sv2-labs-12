@@ -39,11 +39,11 @@ public class ClassRecords {
             throw new ArithmeticException("No student in the class, average calculation aborted!");
         }
         double sum = 0;
-        int numberOfStudents = students.size();
+        int numberOfStudents = 0;
         for (Student s : students) {
-            sum += s.calculateAverage();
-            if (s.calculateAverage() == 0) {
-                numberOfStudents --;
+            if (s.calculateAverage() != 0) {
+                sum += s.calculateAverage();
+                numberOfStudents ++;
             }
         }
         if (sum == 0) {
@@ -52,14 +52,18 @@ public class ClassRecords {
         return (int) (sum / numberOfStudents * 100) / 100d;
     }
 
+
+
+
+
     public double calculateClassAverageBySubject(Subject subject) {
         double sum = 0;
-        int counter = students.size();
+        int counter = 0;
         for (Student s : students) {
-            if (s.calculateSubjectAverage(subject) == 0.0) {
-                counter--;
+            if (s.calculateSubjectAverage(subject)  > 0.0) {
+                sum += s.calculateSubjectAverage(subject);
+                counter++;
             }
-            sum += s.calculateSubjectAverage(subject);
         }
         return (int) (sum / counter * 100) / 100d;
     }

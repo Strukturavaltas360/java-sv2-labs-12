@@ -163,14 +163,20 @@ public class SchoolRecordsController {
         Scanner scanner = new Scanner(System.in);
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + studentForRepetition.getName() + " osztályzata: ");
         String mark = scanner.nextLine().trim();
-
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Tantárgy megnevezése: ");
         String subjectText = scanner.nextLine().trim();
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Az oktató megnevezése: ");
         String tutorText = scanner.nextLine().trim();
 
-        Mark markToRepetition = new Mark(MarkType.valueOf(mark), getSubject(subjectText), getTutor(tutorText));
-        studentForRepetition.grading(markToRepetition);
+        Tutor tutor = getTutor(tutorText);
+        Subject subject = getSubject(subjectText);
+        if (tutor.tutorTeachingSubject(subject)) {
+            Mark markToRepetition = new Mark(MarkType.valueOf(mark), subject, tutor);
+            studentForRepetition.grading(markToRepetition);
+            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Rögzítés SIKERES!");
+        } else {
+            System.out.println(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + tutor.getName() + " nem tanítja a(z) " + subject.getSubjectName() + " tárgyat! - Rögzítés SIKERTELEN!");
+        }
     }
 
     public void deleteStudent() {
