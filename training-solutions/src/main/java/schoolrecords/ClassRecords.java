@@ -15,6 +15,9 @@ public class ClassRecords {
     }
 
     public boolean addStudent(Student student) {
+        if (student == null) {
+            throw new NullPointerException("Student must not be null!");
+        }
         for (Student s : students) {
             if (s.getName().equals(student.getName())) {
                 return false;
@@ -25,6 +28,9 @@ public class ClassRecords {
     }
 
     public boolean removeStudent(Student student) {
+        if (student == null) {
+            throw new NullPointerException("Student must not be null!");
+        }
         for (Student s : students) {
             if (s.getName().equals(student.getName())) {
                 students.remove(student);
@@ -43,7 +49,7 @@ public class ClassRecords {
         for (Student s : students) {
             if (s.calculateAverage() != 0) {
                 sum += s.calculateAverage();
-                numberOfStudents ++;
+                numberOfStudents++;
             }
         }
         if (sum == 0) {
@@ -52,15 +58,14 @@ public class ClassRecords {
         return (int) (sum / numberOfStudents * 100) / 100d;
     }
 
-
-
-
-
     public double calculateClassAverageBySubject(Subject subject) {
+        if (subject == null) {
+            throw new NullPointerException("Subject must not be null!");
+        }
         double sum = 0;
         int counter = 0;
         for (Student s : students) {
-            if (s.calculateSubjectAverage(subject)  > 0.0) {
+            if (s.calculateSubjectAverage(subject) > 0.0) {
                 sum += s.calculateSubjectAverage(subject);
                 counter++;
             }
@@ -69,7 +74,7 @@ public class ClassRecords {
     }
 
     public Student findStudentByName(String name) {
-        if (name.isEmpty() || name == null) {
+        if (isEmpty(name)) {
             throw new IllegalArgumentException("Student name must not be empty!");
         }
         if (students.size() == 0) {
@@ -90,7 +95,6 @@ public class ClassRecords {
         return students.get(random.nextInt(students.size()));
     }
 
-
     public List<StudyResultByName> listStudyResults() {
         List<StudyResultByName> result = new ArrayList<>();
         for (Student s : students) {
@@ -110,9 +114,15 @@ public class ClassRecords {
         return studentNamesSB.toString().trim();
     }
 
-
     public String getClassName() {
         return className;
+    }
+
+    private boolean isEmpty(String str) {
+        if (str == null || str.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     public int getNumberOfStudents() {
@@ -121,11 +131,9 @@ public class ClassRecords {
 
     public int getNumberOfMarks() {
         int sum = 0;
-        for (Student s: students) {
+        for (Student s : students) {
             sum += s.getNumberOfMarks();
         }
         return sum;
     }
 }
-
-// --- a leírásnak megfelelően működjön.. (kivételdobás, validáslások: isEmpty? minden listára/objectre működjön.

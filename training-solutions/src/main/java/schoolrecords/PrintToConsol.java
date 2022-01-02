@@ -26,20 +26,6 @@ public class PrintToConsol {
         return resultSB.toString();
     }
 
-    public void printHeading(String heading, String heading2, int width) {
-        System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
-        if (heading2 != null) {
-            System.out.println(FRAME_COLORSCHEME + centerText(heading2, width) + DEFAULT_COLORSCHEME);
-            System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
-        }
-        System.out.println(FRAME_COLORSCHEME + centerText(heading, width) + DEFAULT_COLORSCHEME);
-        System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
-    }
-
-    public void printFooter(int width) {
-        System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
-    }
-
     public void printRows(String heading, String heading2, List<String> lines, int width) {
         printHeading(heading, heading2, width);
         for (int i = 0; i <= lines.size() - 1; i++) {
@@ -56,6 +42,20 @@ public class PrintToConsol {
         printHeading(heading, null, width);
         System.out.println(FRAME_COLORSCHEME + " " + ROW_EVEN_COLORSCHEME + line + FRAME_COLORSCHEME + " " + DEFAULT_COLORSCHEME);
         printFooter(width);
+    }
+
+    public void printHeading(String heading, String heading2, int width) {
+        System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
+        if (heading2 != null) {
+            System.out.println(FRAME_COLORSCHEME + centerText(heading2, width) + DEFAULT_COLORSCHEME);
+            System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
+        }
+        System.out.println(FRAME_COLORSCHEME + centerText(heading, width) + DEFAULT_COLORSCHEME);
+        System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
+    }
+
+    public void printFooter(int width) {
+        System.out.println(FRAME_COLORSCHEME + centerText("", width) + DEFAULT_COLORSCHEME);
     }
 
 }

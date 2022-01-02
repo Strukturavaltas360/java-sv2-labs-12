@@ -58,6 +58,8 @@ public class SchoolRecordsController {
         tutors.add(new Tutor("Tordai Béla", Arrays.asList(math, physics, chemistry)));
         tutors.add(new Tutor("Ág Edit", Arrays.asList(history, literature, grammar)));
         tutors.add(new Tutor("Bús Gabriella ", Arrays.asList(geology, biology, literature, grammar, english)));
+
+        initStudents();
     }
 
     public static void main(String[] args) {
@@ -166,8 +168,7 @@ public class SchoolRecordsController {
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Tantárgy megnevezése: ");
         String subjectText = scanner.nextLine().trim();
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Az oktató megnevezése: ");
-        String tutorText = scanner.nextLine().trim()
-                ;
+        String tutorText = scanner.nextLine().trim();
         Tutor tutor = getTutor(tutorText);
         Subject subject = getSubject(subjectText);
         if (tutor.tutorTeachingSubject(subject)) {
@@ -220,7 +221,6 @@ public class SchoolRecordsController {
     }
 
     public void readStudent() {
-        initStudents();
         Scanner scanner = new Scanner(System.in);
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Add meg az új diák nevét: ");
         String newName = scanner.nextLine().trim();
@@ -256,13 +256,14 @@ public class SchoolRecordsController {
         for (String actual : MENUITEMS) {
             printMenuItems.add(printToConsol.upToWidth("          " + actual, 70));
         }
-        printToConsol.printRows("M E N Ü", "ELEKTRONIKUS OSZTÁLYNAPLÓ NYILVÁNTARTÁS", printMenuItems, 70);
+        String heading2 = "ELEKTRONIKUS OSZTÁLYNAPLÓ NYILVÁNTARTÁS (" + classRecords.getNumberOfStudents() + " diák - " + classRecords.getNumberOfMarks() + " érdemjegy)";
+        printToConsol.printRows("M E N Ü", heading2, printMenuItems, 70);
     }
 
     private void initStudents() {
-        classRecords.addStudent(new Student("Galagonyás Márta"));
+        classRecords.addStudent(new Student("Nagy Viktor"));
         classRecords.addStudent(new Student("Kiss Jutka"));
-        classRecords.addStudent(new Student("Borbély Béla"));
+        classRecords.addStudent(new Student("Bor Béla"));
     }
 
     private Tutor getTutor(String tutorText) {
