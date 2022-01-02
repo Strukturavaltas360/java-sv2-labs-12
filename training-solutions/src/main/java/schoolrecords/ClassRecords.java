@@ -52,7 +52,6 @@ public class ClassRecords {
         return (int) (sum / numberOfStudents * 100) / 100d;
     }
 
-
     public double calculateClassAverageBySubject(Subject subject) {
         double sum = 0;
         int counter = students.size();
