@@ -45,14 +45,20 @@ public class Student {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(name+" marks: ");
-        for (Mark m: marks) {
-            sb.append(m.getSubject().getSubjectName()+": "+m.toString()+", ");
+        if (!marks.isEmpty()) {
+            for (Mark m : marks) {
+                sb.append(m.getSubject().getSubjectName() + ": " + m.toString() + ", ");
+            }
+            sb.deleteCharAt(sb.length() - 2);
         }
-        sb.deleteCharAt(sb.length() - 2);
         return sb.toString().trim();
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getNumberOfMarks() {
+        return marks.size();
     }
 }

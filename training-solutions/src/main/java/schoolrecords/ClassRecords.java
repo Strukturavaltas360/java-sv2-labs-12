@@ -39,13 +39,17 @@ public class ClassRecords {
             throw new ArithmeticException("No student in the class, average calculation aborted!");
         }
         double sum = 0;
+        int numberOfStudents = students.size();
         for (Student s : students) {
             sum += s.calculateAverage();
+            if (s.calculateAverage() == 0) {
+                numberOfStudents --;
+            }
         }
         if (sum == 0) {
             throw new ArithmeticException("No marks present, average calculation aborted!");
         }
-        return (int) (sum / students.size() * 100) / 100d;
+        return (int) (sum / numberOfStudents * 100) / 100d;
     }
 
 
@@ -60,7 +64,6 @@ public class ClassRecords {
         }
         return (int) (sum / counter * 100) / 100d;
     }
-
 
     public Student findStudentByName(String name) {
         if (name.isEmpty() || name == null) {
@@ -95,10 +98,12 @@ public class ClassRecords {
 
     public String listStudentNames() {
         StringBuilder studentNamesSB = new StringBuilder();
-        for (Student s : students) {
-            studentNamesSB.append(s.getName() + ", ");
+        if (!students.isEmpty()) {
+            for (Student s : students) {
+                studentNamesSB.append(s.getName() + ", ");
+            }
+            studentNamesSB.deleteCharAt(studentNamesSB.length() - 2);
         }
-        studentNamesSB.deleteCharAt(studentNamesSB.length() - 2);
         return studentNamesSB.toString().trim();
     }
 
@@ -106,7 +111,18 @@ public class ClassRecords {
     public String getClassName() {
         return className;
     }
+
+    public int getNumberOfStudents() {
+        return students.size();
+    }
+
+    public int getNumberOfMarks() {
+        int sum = 0;
+        for (Student s: students) {
+            sum += s.getNumberOfMarks();
+        }
+        return sum;
+    }
 }
 
 // --- a leírásnak megfelelően működjön.. (kivételdobás, validáslások: isEmpty? minden listára/objectre működjön.
-// --- main: kiírások, menü vezérlése, előzőnek megfelelő cuccok)
