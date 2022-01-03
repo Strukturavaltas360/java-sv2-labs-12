@@ -175,13 +175,14 @@ public class SchoolRecordsController {
             studentForRepetition.grading(new Mark(MarkType.valueOf(mark), subject, tutor));
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Rögzítés SIKERES!");
         } else {
-            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + tutor.getName() + " nem tanítja a(z) " + subject.getSubjectName() + " tárgyat! - Rögzítés SIKERTELEN!");
+            System.out.print
+                    (FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + tutor.getName() + " nem tanítja a(z) " + subject.getSubjectName() + " tárgyat! - Rögzítés SIKERTELEN!");
         }
     }
 
     public void deleteStudent() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Melyik diákot szeretnénk törölni? ");
+        System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Melyik diákot szeretnéd törölni? ");
         String findName = scanner.nextLine().trim();
         try {
             Student foundStudent = classRecords.findStudentByName(findName);
@@ -190,7 +191,7 @@ public class SchoolRecordsController {
         } catch (IllegalArgumentException iae) {
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! " + findName + " nevű diákot nem tudtuk törölni a naplóból!");
         } catch (IllegalStateException ise) {
-            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! " + findName + " nevű diákot nem tudtuk törölni a naplóból!");
+            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! A naplóban jelenleg nem szerepelnek nevek!");
         }
     }
 
