@@ -4,7 +4,6 @@ import java.util.*;
 
 public class SchoolRecordsController {
 
-
     private static final String FRAME_COLORSCHEME = "\u001B[30;43m";
     private static final String LINE_INPUT_COLORSCHEME = "\u001B[33;49m";
     private static final List<String> MENUITEMS = Arrays.asList(
@@ -26,7 +25,6 @@ public class SchoolRecordsController {
     private List<Tutor> tutors = new ArrayList<>();
 
     public void initSchool() {
-
         Subject geology = new Subject("földrajz");
         Subject math = new Subject("matematika");
         Subject biology = new Subject("biológia");
@@ -191,8 +189,7 @@ public class SchoolRecordsController {
         } catch (IllegalArgumentException iae) {
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! " + findName + " nevű diákot nem tudtuk törölni a naplóból!");
         } catch (IllegalStateException ise) {
-            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! A naplóban jelenleg nem szerepelnek nevek" +
-                    "!");
+            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! A naplóban jelenleg nem szerepelnek nevek" + "!");
         }
     }
 
@@ -278,7 +275,6 @@ public class SchoolRecordsController {
     }
 
     private Subject getSubject(String subjectText) {
-
         for (Subject s : subjects) {
             if (subjectText.equals(s.getSubjectName())) {
                 return s;
@@ -288,26 +284,13 @@ public class SchoolRecordsController {
     }
 
     private MarkType getMarkType(String markString) {
-        MarkType result = null;
-        try {
-            int temp = Integer.parseInt(markString);
-            for (MarkType m : MarkType.values()) {
-                if (m.getMark() == temp) {
-                    result = m;
-                }
-            }
-        } catch (IllegalArgumentException iae) {
-            for (MarkType m : MarkType.values()) {
-                if (markString.equals(m.name()) || m.getMarkName().equals(markString)) {
-                    result = m;
-                }
+        for (MarkType m : MarkType.values()) {
+            if (markString.equals(Integer.toString(m.getMark())) || markString.equals(m.name()) || m.getMarkName().equals(markString)) {
+                return m;
             }
         }
-        if (result == null) {
-            throw new IllegalStateException("No such Mark!");
-        } else {
-            return result;
-        }
+        throw new IllegalStateException("No such Mark!");
     }
+
 }
 
