@@ -164,15 +164,16 @@ public class SchoolRecordsController {
         Student studentForRepetition = classRecords.repetition();
         Scanner scanner = new Scanner(System.in);
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " " + studentForRepetition.getName() + " osztályzata: ");
-        String mark = scanner.nextLine().trim();
+        String markString = scanner.nextLine().trim();
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Tantárgy megnevezése: ");
         String subjectText = scanner.nextLine().trim();
         System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Az oktató megnevezése: ");
         String tutorText = scanner.nextLine().trim();
+        MarkType marktype = getMarkType(markString);
         Tutor tutor = getTutor(tutorText);
         Subject subject = getSubject(subjectText);
         if (tutor.tutorTeachingSubject(subject)) {
-            studentForRepetition.grading(new Mark(MarkType.valueOf(mark), subject, tutor));
+            studentForRepetition.grading(new Mark(marktype, subject, tutor));
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " Rögzítés SIKERES!");
         } else {
             System.out.print
@@ -191,7 +192,8 @@ public class SchoolRecordsController {
         } catch (IllegalArgumentException iae) {
             System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! " + findName + " nevű diákot nem tudtuk törölni a naplóból!");
         } catch (IllegalStateException ise) {
-            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! A naplóban jelenleg nem szerepelnek nevek!");
+            System.out.print(FRAME_COLORSCHEME + " " + LINE_INPUT_COLORSCHEME + " SIKERTELEN! A naplóban jelenleg nem szerepelnek nevek" +
+                    "!");
         }
     }
 
@@ -286,5 +288,27 @@ public class SchoolRecordsController {
         throw new IllegalStateException("No such subject!");
     }
 
+    private MarkType getMarkType(String markString) {
+        MarkType result = null;
+        try {
+            int temp = Integer.parseInt(markString);
+            for (MarkType m : MarkType.values()) {
+                if (m.getMark() == temp) {
+                    result = m;
+                }
+            }
+        } catch (IllegalArgumentException iae) {
+            for (MarkType m : MarkType.values()) {
+                if (markString.equals(m.name()) || m.getMarkName().equals(markString)) {
+                    result = m;
+                }
+            }
+        }
+        if (result == null) {
+            throw new IllegalStateException("No such Mark!");
+        } else {
+            return result;
+        }
+    }
 }
 
