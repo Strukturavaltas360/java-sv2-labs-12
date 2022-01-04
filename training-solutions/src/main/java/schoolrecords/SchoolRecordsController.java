@@ -289,7 +289,7 @@ public class SchoolRecordsController {
                 return m;
             }
         }
-        throw new IllegalStateException("No such Mark!");
+        throw new IllegalStateException("No such mark!");
     }
 
 }
