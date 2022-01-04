@@ -24,7 +24,7 @@ public class NumbersSum {
                     sum += Integer.parseInt(s);
                 }
             } catch (IllegalArgumentException iae) {
-                throw new IllegalArgumentException("Not a number", iae);
+                throw new IllegalArgumentException("Not a number!", iae);
             }
             return sum;
         }
