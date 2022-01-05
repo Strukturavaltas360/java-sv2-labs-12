@@ -6,13 +6,19 @@ public class Course {
     private SimpleTime begin;
 
     public Course(String name, SimpleTime begin) {
+        if (name == null) {
+            throw new IllegalArgumentException("Name is null!");
+        }
+        if (begin == null) {
+            throw new IllegalArgumentException("Begin is null!");
+        }
         this.name = name;
         this.begin = begin;
     }
 
     @Override
     public String toString() {
-        return begin.toString() + ":" + name;
+        return String.format("%s: %s", begin.toString(), name);
     }
 
     public String getName() {
