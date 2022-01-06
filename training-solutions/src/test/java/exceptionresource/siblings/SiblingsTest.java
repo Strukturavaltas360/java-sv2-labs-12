@@ -27,7 +27,5 @@ class SiblingsTest {
         Path path = Paths.get("src/test/Resources/firstnames_.txt");
         Exception ex = assertThrows(IllegalStateException.class, () -> siblings.getFullNames("Molnár",path));
         assertEquals("Error while reading file!", ex.getMessage());
-
     }
-
 }
