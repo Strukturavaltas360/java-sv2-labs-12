@@ -41,7 +41,6 @@ public class Catalog {
         return result;
     }
 
-
     public int getAllPageNumber() {
         int sum = 0;
         for (CatalogItem c : catalogItems) {
@@ -84,9 +83,8 @@ public class Catalog {
         List<CatalogItem> result = new ArrayList<>();
         String contributorToFind = searchCriteria.getContributor();
         String titleToFind = searchCriteria.getTitle();
-
         for (CatalogItem c : catalogItems) {
-            if ((hasCriteriaBoth(searchCriteria) && c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind))
+            if ((hasCriteriaBoth(searchCriteria) && (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)))
                     || (!hasCriteriaBoth(searchCriteria) && (c.getTitles().contains(titleToFind) || (c.getContributors().contains(contributorToFind))))) {
                 result.add(c);
             }
