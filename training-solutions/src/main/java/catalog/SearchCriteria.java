@@ -9,21 +9,21 @@ public class SearchCriteria {
 
     public static SearchCriteria createByBoth(String contributor, String title) {
         if (isBlank(contributor) || (isBlank(title))) {
-            throw new IllegalArgumentException("Contributor is null");
+            throw new IllegalArgumentException("Contributor or Title is null or empty");
         }
         return new SearchCriteria(contributor, title);
     }
 
     public static SearchCriteria createByContributor(String contributor) {
         if (isBlank(contributor)) {
-            throw new IllegalArgumentException("Contributor is null");
+            throw new IllegalArgumentException("Contributor is null or empty");
         }
         return new SearchCriteria(null, contributor);
     }
 
     public static SearchCriteria createByTitle(String title) {
         if (isBlank(title)) {
-            throw new IllegalArgumentException("Title is null");
+            throw new IllegalArgumentException("Title is null or empty");
         }
         return new SearchCriteria(title, null);
     }

@@ -66,32 +66,39 @@ public class Catalog {
         if (number <= 0) {
             throw new IllegalArgumentException("Page number must be positive");
         }
-        int sum =0;
+        int sum = 0;
         int counter = 0;
-        for (CatalogItem c: catalogItems) {
-            if (c.hasPrintedFeature() && c.numberOfPagesAtOneItem()> number) {
+        for (CatalogItem c : catalogItems) {
+            if (c.hasPrintedFeature() && c.numberOfPagesAtOneItem() > number) {
                 sum += c.numberOfPagesAtOneItem();
-                counter ++;
+                counter++;
             }
         }
-        if (counter ==0) {
+        if (counter == 0) {
             throw new IllegalArgumentException("No page");
         }
-        return sum/counter;
+        return sum / counter;
     }
 
     public List<CatalogItem> findByCriteria(SearchCriteria searchCriteria) {
         List<CatalogItem> result = new ArrayList<>();
-        for (CatalogItem c: catalogItems) {
-            if (searchCriteria.hasContributor() && c.getContributors().contains(searchCriteria.getContributor())) {
-                result.add(c);
-            }
-            if (searchCriteria.hasTitle() && c.getTitles().contains(searchCriteria.getTitle()) && !result.contains(c)) {
-                result.add(c);
-            }
+        String contributorToFind = searchCriteria.getContributor();
+        String titleToFind = searchCriteria.getTitle();
 
+        for (CatalogItem c : catalogItems) {
+            if ((hasCriteriaBoth(searchCriteria) && c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind))
+                    || (!hasCriteriaBoth(searchCriteria) && (c.getTitles().contains(titleToFind) || (c.getContributors().contains(contributorToFind))))) {
+                result.add(c);
+            }
         }
         return result;
+    }
+
+    private boolean hasCriteriaBoth(SearchCriteria searchCriteria) {
+        if (searchCriteria.hasContributor() && searchCriteria.hasTitle()) {
+            return true;
+        }
+        return false;
     }
 
 
