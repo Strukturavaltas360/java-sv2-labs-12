@@ -33,7 +33,7 @@ public class AudioFeaturesTest {
         assertEquals(300, audioFeatures.getLength());
 
         assertEquals(2, audioFeatures.getContributors().size());
-//        assertEquals("Metallica", audioFeatures.getContributors().get(1));
+        assertEquals("Metallica", audioFeatures.getContributors().get(1));
     }
 
     @Test

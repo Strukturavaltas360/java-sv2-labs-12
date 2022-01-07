@@ -31,8 +31,8 @@ public class AudioFeatures implements Feature {
     @Override
     public List<String> getContributors() {
         List<String> commonList = new ArrayList<>();
-        commonList.addAll(composers);
         commonList.addAll(performers);
+        commonList.addAll(composers);
         return List.copyOf(commonList);
     }
 
