@@ -9,7 +9,7 @@ public class SearchCriteria {
 
     public static SearchCriteria createByBoth(String contributor, String title) {
         if (isBlank(contributor) || (isBlank(title))) {
-            throw new IllegalArgumentException("Contributor or Title is null or empty");
+            throw new IllegalArgumentException("Contributor or title is null or empty");
         }
         return new SearchCriteria(contributor, title);
     }

@@ -16,7 +16,6 @@ public class CatalogItem {
         this.features = new ArrayList<>(Arrays.asList(features));
     }
 
-
     public boolean hasAudioFeature() {
         for (Feature f : features) {
             if (f instanceof AudioFeatures) {
