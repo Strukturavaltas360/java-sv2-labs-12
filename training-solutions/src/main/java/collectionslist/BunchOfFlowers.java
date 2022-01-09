@@ -12,12 +12,12 @@ public class BunchOfFlowers {
     }
 
     public void addFlowerInTheMiddle(String flower) {
-        int position = bunch.size();
-        if (position % 2 == 0) {
-            bunch.add(position / 2, flower);
+        int position = bunch.size()/2;
+        if (bunch.size() % 2 == 0) {
+            bunch.add(position, flower);
         } else {
-            bunch.add(position / 2, flower);
-            bunch.add((position / 2) + 2, flower);
+            bunch.add(position, flower);
+            bunch.add(position + 2, flower);
         }
     }
 
