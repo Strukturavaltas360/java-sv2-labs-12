@@ -28,11 +28,6 @@ public class SearchCriteria {
         return new SearchCriteria(title, null);
     }
 
-    private SearchCriteria(String title, String contributor) {
-        this.contributor = contributor;
-        this.title = title;
-    }
-
     public boolean hasTitle() {
         if (!isBlank(title)) {
             return true;
@@ -53,5 +48,10 @@ public class SearchCriteria {
 
     public String getTitle() {
         return title;
+    }
+
+    private SearchCriteria(String title, String contributor) {
+        this.contributor = contributor;
+        this.title = title;
     }
 }

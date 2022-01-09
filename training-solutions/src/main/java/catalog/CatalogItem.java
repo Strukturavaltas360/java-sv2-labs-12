@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static catalog.Validators.isBlank;
+import static catalog.Validators.isEmpty;
+
 public class CatalogItem {
 
     private String registrationNumber;
@@ -14,6 +17,9 @@ public class CatalogItem {
         this.registrationNumber = registrationNumber;
         this.price = price;
         this.features = new ArrayList<>(Arrays.asList(features));
+        validateFeatures(this.features);
+        validatePrice(price);
+        validateRegistrationNumber(registrationNumber);
     }
 
     public boolean hasAudioFeature() {
@@ -79,6 +85,24 @@ public class CatalogItem {
     }
 
     public List<Feature> getFeatures() {
-        return List.copyOf(features);
+        return new ArrayList<>(features);
+    }
+
+    private void validateFeatures(List<Feature> features) {
+        if (isEmpty(features)) {
+            throw new IllegalArgumentException("Empty features!");
+        }
+    }
+
+    private void validatePrice (int price) {
+        if (price <= 0) {
+            throw new IllegalArgumentException("Price must be positive!");
+        }
+    }
+
+    private void validateRegistrationNumber(String registrationNumber) {
+        if (isBlank(registrationNumber)) {
+            throw new IllegalArgumentException("Empty registration number!");
+        }
     }
 }

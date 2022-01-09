@@ -14,11 +14,11 @@ public class Validators {
         return false;
     }
 
-    public static boolean isEmpty(List s) {
-        if (s == null) {
+    public static boolean isEmpty(List list) {
+        if (list == null) {
             return true;
         }
-        if (s.size()==0) {
+        if (list.size() == 0) {
             return true;
         }
         return false;

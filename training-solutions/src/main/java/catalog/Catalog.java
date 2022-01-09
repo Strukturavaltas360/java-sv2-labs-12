@@ -12,13 +12,12 @@ public class Catalog {
     }
 
     public void deleteItemByRegistrationNumber(String registrationNumber) {
-        List<CatalogItem> catalogItemsForRemove = new ArrayList<>();
         for (CatalogItem c : catalogItems) {
             if (c.getRegistrationNumber().equals(registrationNumber)) {
-                catalogItemsForRemove.add(c);
+                catalogItems.remove(c);
+                return;
             }
         }
-        catalogItems.removeAll(catalogItemsForRemove);
     }
 
     public List<CatalogItem> getAudioLibraryItems() {

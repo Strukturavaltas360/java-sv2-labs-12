@@ -16,24 +16,14 @@ public class PrintedFeatures implements Feature {
         this.title = title;
         this.numberOfPages = numberOfPages;
         this.authors = authors;
-        validate(title, numberOfPages, authors);
-    }
-
-    private void validate(String title, int numberOfPages, List<String> authors) {
-        if (numberOfPages <= 0) {
-            throw new IllegalArgumentException("Invalid number of pages!");
-        }
-        if (isBlank(title)) {
-            throw new IllegalArgumentException("Empty title");
-        }
-        if (isEmpty(authors)) {
-            throw new IllegalArgumentException("Empty authors");
-        }
+        validateTitle(title);
+        validateAuthors(authors);
+        validateNumberOfPages(numberOfPages);
     }
 
     @Override
     public List<String> getContributors() {
-        return List.copyOf(authors);
+        return new ArrayList<>(authors);
     }
 
     @Override
@@ -44,4 +34,23 @@ public class PrintedFeatures implements Feature {
     public int getNumberOfPages() {
         return numberOfPages;
     }
+
+    private void validateAuthors(List<String> authors) {
+        if (isEmpty(authors)) {
+            throw new IllegalArgumentException("Empty authors");
+        }
+    }
+
+    private void validateNumberOfPages(int numberOfPages) {
+        if (numberOfPages <= 0) {
+            throw new IllegalArgumentException("Invalid number of pages!");
+        }
+    }
+
+    private void validateTitle(String title) {
+        if (isBlank(title)) {
+            throw new IllegalArgumentException("Empty title");
+        }
+    }
+
 }

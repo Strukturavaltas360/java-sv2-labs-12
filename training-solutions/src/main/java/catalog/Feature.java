@@ -6,4 +6,5 @@ public interface Feature {
 
     List<String> getContributors();
     String getTitle();
+
 }
