@@ -83,8 +83,11 @@ public class Catalog {
         String contributorToFind = searchCriteria.getContributor();
         String titleToFind = searchCriteria.getTitle();
         for (CatalogItem c : catalogItems) {
-            if ((hasCriteriaBoth(searchCriteria) && (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)))
-                    || (!hasCriteriaBoth(searchCriteria) && (c.getTitles().contains(titleToFind) || (c.getContributors().contains(contributorToFind))))) {
+//            if ((hasCriteriaBoth(searchCriteria) && (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)))
+//                    || (!hasCriteriaBoth(searchCriteria) && c.getTitles().contains(titleToFind) || (c.getContributors().contains(contributorToFind)))) {
+            
+            if ((hasCriteriaBoth(searchCriteria) && AreBothCriteriaTrue(c, titleToFind, contributorToFind))
+                    || (!hasCriteriaBoth(searchCriteria) && IsOneOfTheCriteriasIsTrue(c, titleToFind, contributorToFind))) {
                 result.add(c);
             }
         }
@@ -98,5 +101,18 @@ public class Catalog {
         return false;
     }
 
+    private boolean AreBothCriteriaTrue(CatalogItem c, String titleToFind, String contributorToFind) {
+        if (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean IsOneOfTheCriteriasIsTrue(CatalogItem c, String titleToFind, String contributorToFind) {
+        if (c.getTitles().contains(titleToFind) || c.getContributors().contains(contributorToFind)) {
+            return true;
+        }
+        return false;
+    }
 
 }
