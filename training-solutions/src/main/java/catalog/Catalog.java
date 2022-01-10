@@ -85,7 +85,7 @@ public class Catalog {
         for (CatalogItem c : catalogItems) {
 //            if ((hasCriteriaBoth(searchCriteria) && (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)))
 //                    || (!hasCriteriaBoth(searchCriteria) && c.getTitles().contains(titleToFind) || (c.getContributors().contains(contributorToFind)))) {
-            
+
             if ((hasCriteriaBoth(searchCriteria) && AreBothCriteriaTrue(c, titleToFind, contributorToFind))
                     || (!hasCriteriaBoth(searchCriteria) && IsOneOfTheCriteriasIsTrue(c, titleToFind, contributorToFind))) {
                 result.add(c);
