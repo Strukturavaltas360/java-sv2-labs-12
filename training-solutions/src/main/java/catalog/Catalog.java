@@ -80,14 +80,9 @@ public class Catalog {
 
     public List<CatalogItem> findByCriteria(SearchCriteria searchCriteria) {
         List<CatalogItem> result = new ArrayList<>();
-        String contributorToFind = searchCriteria.getContributor();
-        String titleToFind = searchCriteria.getTitle();
         for (CatalogItem c : catalogItems) {
-//            if ((hasCriteriaBoth(searchCriteria) && (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)))
-//                    || (!hasCriteriaBoth(searchCriteria) && c.getTitles().contains(titleToFind) || (c.getContributors().contains(contributorToFind)))) {
-
-            if ((hasCriteriaBoth(searchCriteria) && AreBothCriteriaTrue(c, titleToFind, contributorToFind))
-                    || (!hasCriteriaBoth(searchCriteria) && IsOneOfTheCriteriasIsTrue(c, titleToFind, contributorToFind))) {
+            if ((hasCriteriaBoth(searchCriteria) && AreBothCriteriaTrueForThisItem(c, searchCriteria))
+                    || (!hasCriteriaBoth(searchCriteria) && IsOneOfTheCriteriasTrueForThisItem(c, searchCriteria))) {
                 result.add(c);
             }
         }
@@ -101,15 +96,15 @@ public class Catalog {
         return false;
     }
 
-    private boolean AreBothCriteriaTrue(CatalogItem c, String titleToFind, String contributorToFind) {
-        if (c.getTitles().contains((titleToFind)) && c.getContributors().contains(contributorToFind)) {
+    private boolean AreBothCriteriaTrueForThisItem(CatalogItem c, SearchCriteria sc) {
+        if (c.getTitles().contains(sc.getTitle()) && c.getContributors().contains(sc.getContributor())) {
             return true;
         }
         return false;
     }
 
-    private boolean IsOneOfTheCriteriasIsTrue(CatalogItem c, String titleToFind, String contributorToFind) {
-        if (c.getTitles().contains(titleToFind) || c.getContributors().contains(contributorToFind)) {
+    private boolean IsOneOfTheCriteriasTrueForThisItem(CatalogItem c, SearchCriteria sc) {
+        if (c.getTitles().contains(sc.getTitle()) || c.getContributors().contains(sc.getContributor())) {
             return true;
         }
         return false;
