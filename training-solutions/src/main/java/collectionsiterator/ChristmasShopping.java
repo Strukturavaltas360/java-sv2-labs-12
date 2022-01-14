@@ -19,7 +19,7 @@ public class ChristmasShopping {
     public void removeTooExpensivePresent(int maxPrice) {
         Iterator<ChristmasPresent> i = christmasPresent.iterator();
         while (i.hasNext()) {
-            if (i.next().getPrice()>maxPrice) {
+            if (i.next().getPrice() > maxPrice) {
                 i.remove();
             }
         }
