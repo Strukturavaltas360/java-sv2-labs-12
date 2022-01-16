@@ -9,7 +9,7 @@ public class Pike {
         this.pikeName = pikeName;
         this.height = height;
     }
-    
+
     public int getHeight() {
         return height;
     }
