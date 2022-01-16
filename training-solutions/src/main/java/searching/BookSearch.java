@@ -1,7 +1,6 @@
 package searching;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class BookSearch {
 
@@ -12,9 +11,13 @@ public class BookSearch {
     }
 
     public Book findBookByAuthorTitle(String author, String title) {
-        if (author == null || title == null) {
-            throw new IllegalArgumentException("Author or title is null");
+        if (author == null || title == null || author.isEmpty() || title.isEmpty()) {
+            throw new IllegalArgumentException("Author or title must not be empty!");
         }
-        throw new IllegalArgumentException("Book not found");
+        int index = Collections.binarySearch(books, new Book(author, title));
+        if (index < 0) {
+            throw new IllegalArgumentException("No book found by " + author + " with title " + title);
+        }
+        return books.get(index);
     }
 }
