@@ -25,17 +25,13 @@ public class Issue {
         time = issue.time;
         status = issue.status;
         if (copyMode.equals(CopyMode.WITH_COMMENTS)) {
-            comments = copyComments(issue.comments);
+            for (Comment c: issue.comments) {
+                comments.add(new Comment(c));
+            }
         }
     }
 
-    private List<Comment> copyComments(List<Comment> comments) {
-        List<Comment> result = new ArrayList<>();
-        for (Comment c: comments) {
-            result.add(new Comment(c));
-        }
-        return result;
-    }
+
 
     public String getName() {
         return name;
