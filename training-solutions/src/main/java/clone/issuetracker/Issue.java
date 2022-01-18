@@ -31,8 +31,6 @@ public class Issue {
         }
     }
 
-
-
     public String getName() {
         return name;
     }
