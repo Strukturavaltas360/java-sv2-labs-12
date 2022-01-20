@@ -14,28 +14,28 @@ public class TrainingCompany {
 
     public Course getCheaperCourse(int maxPrice) {
         Optional<Course> result = Optional.empty();
-        for (Course c: courses) {
-            if (c.getPrice()<maxPrice) {
+        for (Course c : courses) {
+            if (c.getPrice() < maxPrice) {
                 result = Optional.of(c);
             }
         }
-        return result.orElseThrow(()-> new IllegalArgumentException("No such course."));
+        return result.orElseThrow(() -> new IllegalArgumentException("No such course."));
     }
 
-    public int getPriceOfCourseWithGivenNameAndLevel(String name, Level level){
+    public int getPriceOfCourseWithGivenNameAndLevel(String name, Level level) {
         Optional<Integer> result = Optional.empty();
-            for (Course c: courses) {
-                if (c.getName().equals(name) && c.getLevel()==level) {
-                    result = Optional.of(c.getPrice());
-                }
+        for (Course c : courses) {
+            if (c.getName().equals(name) && c.getLevel() == level) {
+                result = Optional.of(c.getPrice());
             }
-            return result.orElseThrow(()-> new IllegalArgumentException("No such course."));
+        }
+        return result.orElseThrow(() -> new IllegalArgumentException("No such course."));
     }
 
     public String getNameOfCourseWithGivenLevel(Level level) {
         Optional<String> result = Optional.empty();
-        for (Course c: courses) {
-            if (c.getLevel()==level) {
+        for (Course c : courses) {
+            if (c.getLevel() == level) {
                 result = Optional.of(c.getName());
             }
         }
