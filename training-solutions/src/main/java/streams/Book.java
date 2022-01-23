@@ -23,4 +23,9 @@ public class Book {
     public int getPages() {
         return pages;
     }
+
+    @Override
+    public String toString() {
+        return author + " " + title + " " + pages;
+    }
 }
