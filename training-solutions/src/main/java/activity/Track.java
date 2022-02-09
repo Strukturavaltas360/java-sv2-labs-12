@@ -17,24 +17,47 @@ public class Track {
     }
 
     public Coordinate findMaximumCoordinate() {
-        return trackPoints.stream()
-                .map(TrackPoint::getCoordinate)
-                .sorted(Comparator.comparing(Coordinate::getLatitude).reversed())
-                .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Empty list"));
+        Coordinate maxLat =
+                trackPoints.stream()
+                        .map(trackPoint -> trackPoint.getCoordinate())
+                        .sorted(Comparator.comparing(Coordinate::getLatitude).reversed())
+                        .findFirst()
+                        .orElseThrow(()-> new IllegalArgumentException("empty list"));
+
+        Coordinate maxLong =
+                trackPoints.stream()
+                        .map(trackPoint -> trackPoint.getCoordinate())
+                        .sorted(Comparator.comparing(Coordinate::getLongitude).reversed())
+                        .findFirst()
+                        .orElseThrow(()-> new IllegalArgumentException("empty list"));
+
+        return new Coordinate(maxLat.getLatitude(),maxLong.getLongitude());
     }
 
     public Coordinate findMinimumCoordinate() {
-        return trackPoints.stream()
-                .map(TrackPoint::getCoordinate)
+        Coordinate minLat =
+        trackPoints.stream()
+                .map(trackPoint -> trackPoint.getCoordinate())
                 .sorted(Comparator.comparing(Coordinate::getLatitude))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Empty list"));
+                .orElseThrow(()-> new IllegalArgumentException("empty list"));
+
+        Coordinate minLong =
+        trackPoints.stream()
+                .map(trackPoint -> trackPoint.getCoordinate())
+                .sorted(Comparator.comparing(Coordinate::getLongitude))
+                .findFirst()
+                .orElseThrow(()-> new IllegalArgumentException("empty list"));
+
+        return new Coordinate(minLat.getLatitude(),minLong.getLongitude());
     }
 
     public double getDistance() {
-
-    return 0;
+        double distance = 0;
+        for (int i = 0; i < trackPoints.size() - 1; i++) {
+            distance += trackPoints.get(i + 1).getDistanceFrom(trackPoints.get(i));
+        }
+        return distance;
     }
 
     public double getFullDecrease() {
@@ -43,9 +66,9 @@ public class Track {
                 .collect(Collectors.toList());
 
         double fullDecrease = 0.0;
-        for (int i = 0; i < elevations.size(); i++) {
+        for (int i = 0; i < elevations.size() - 1; i++) {
             if (elevations.get(i + 1) < elevations.get(i)) {
-                fullDecrease += elevations.get(i + 1) - elevations.get(i);
+                fullDecrease += elevations.get(i) - elevations.get(i + 1);
             }
         }
         return fullDecrease;
@@ -57,7 +80,7 @@ public class Track {
                 .collect(Collectors.toList());
 
         double fullElevation = 0.0;
-        for (int i = 0; i < elevations.size(); i++) {
+        for (int i = 0; i < elevations.size() - 1; i++) {
             if (elevations.get(i + 1) > elevations.get(i)) {
                 fullElevation += elevations.get(i + 1) - elevations.get(i);
             }
@@ -66,7 +89,10 @@ public class Track {
     }
 
     public double getRectangleArea() {
-        return 0;
+        Coordinate min = findMinimumCoordinate();
+        Coordinate max = findMaximumCoordinate();
+
+        return (max.getLatitude()-min.getLatitude())*(max.getLongitude()- min.getLongitude());
     }
 
     public void loadFromGpx(Path path) {
