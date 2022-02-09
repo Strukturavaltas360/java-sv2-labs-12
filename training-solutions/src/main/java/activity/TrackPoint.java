@@ -36,4 +36,5 @@ public class TrackPoint {
     public double getElevation() {
         return elevation;
     }
+
 }

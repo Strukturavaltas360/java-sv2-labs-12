@@ -13,8 +13,11 @@ public class ActivityWithTrack implements Activity {
 
     @Override
     public double getDistance() {
-
-        return 0;
+        double distance = 0;
+        for (int i = 0; i < track.trackPoints.size()-1; i++) {
+            distance += track.trackPoints.get(i+1).getDistanceFrom(track.trackPoints.get(i));
+        }
+        return distance;
     }
 
     @Override
