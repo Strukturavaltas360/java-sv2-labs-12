@@ -17,11 +17,14 @@ public class Activities {
 
     public List<Report> distancesByTypes() {
         List<Report> result = new ArrayList<>();
-        for (Activity actual: activities) {
-            if (actual.getType() != ActivityType.BASKETBALL) {
-                Report newReport = new Report(actual.getType(),actual.getDistance());
-                result.add(newReport);
+        for (ActivityType actual : ActivityType.values()) {
+            double sum = 0;
+            for (Activity activity : activities) {
+                if (activity.getType() == actual) {
+                    sum += activity.getDistance();
+                }
             }
+            result.add(new Report(actual, sum));
         }
         return result;
     }

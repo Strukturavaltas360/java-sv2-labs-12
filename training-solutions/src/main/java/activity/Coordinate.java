@@ -9,12 +9,12 @@ public class Coordinate {
         if (latitude >= -90 && latitude <= 90) {
             this.latitude = latitude;
         } else {
-            throw new IllegalArgumentException("nem jó lattitude");
+            throw new IllegalArgumentException("Error in latitude value");
         }
         if (longitude >= -180 && longitude <= 180) {
             this.longitude = longitude;
         } else {
-            throw new IllegalArgumentException("nem jó longitude");
+            throw new IllegalArgumentException("Error in longitude value");
         }
     }
 
