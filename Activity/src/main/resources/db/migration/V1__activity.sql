@@ -1,0 +1,1 @@
+create table activities (id bigint not null  AUTO_INCREMENT, startTime DATETIME, activity_desc varchar(255), activity_type varchar(30), primary key (id))
