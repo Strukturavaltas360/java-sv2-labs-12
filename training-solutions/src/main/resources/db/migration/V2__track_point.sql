@@ -1,0 +1,1 @@
+create table track_point (id bigint not NULL AUTO_INCREMENT, activity_id bigint, time DATE, lat DOUBLE, lon DOUBLE, primary key (id));

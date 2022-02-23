@@ -31,7 +31,9 @@ public class ActivityTrackerMain {
         }
 
         Flyway flyway = Flyway.configure().dataSource(dataSource).load();
+
         flyway.migrate();
+
 
 //        insertListIntoTable(dataSource, activityList);
 //        System.out.println(new ActivityTrackerMain().selectDataById(dataSource, 3L));
